@@ -1,0 +1,21 @@
+.options-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.option-button {
+  padding: 0.5rem;
+  border-radius: 25px;
+  background: transparent;
+  border: 1px solid #2FA4FF;
+  margin: 3px;
+  color:#2FA4FF;
+}
+
+.option-button:hover {
+  color:white;
+  background-color: #2FA4FF;
+  transition: 0.3s;
+  cursor: pointer;
+}
