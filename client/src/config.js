@@ -2,6 +2,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import LinkList from "./components/LinkList/LinkList";
 import Options from "./components/Options/Options";
 import Shipping from "./components/Shipping/Shipping";
+import Evaluation from "./components/Evaluation/Evaluation";
 import MyAvatar from "./components/MyAvatar";
 
 const config = {
@@ -63,9 +64,13 @@ const config = {
         ]
       }
     },
-  ],
 
-  
+    // Evaluation widget first layer
+    {
+      widgetName:"evaluationOptions",
+      widgetFunc: (props) => <Evaluation {...props} />,
+    },
+  ],
 
   customStyles: {
     botMessageBox: {

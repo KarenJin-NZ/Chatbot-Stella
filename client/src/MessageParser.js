@@ -7,26 +7,33 @@ class MessageParser {
   parse(message) {
     const lowerCaseMessage = message.toLowerCase();
 
-    if (lowerCaseMessage.includes("hello")) {
+    if (lowerCaseMessage.includes("hello")){
       this.actionProvider.greet();
     }
 
-    if(lowerCaseMessage.includes("shipping")){
+    else if(lowerCaseMessage.includes("shipping")){
       this.actionProvider.handleShippingOptions();
     }
 
-    if(lowerCaseMessage.includes("rates")){
+    else if(lowerCaseMessage.includes("rates")){
       this.actionProvider.handleShippingRates();
     }
 
-    if(lowerCaseMessage.includes("zones")){
+    else if(lowerCaseMessage.includes("zones")){
       this.actionProvider.handleShippingZones();
     }
 
-    if(lowerCaseMessage.includes("specials")){
+    else if(lowerCaseMessage.includes("specials")){
       this.actionProvider.handleSpecials();
     }
 
+    else if(lowerCaseMessage.includes("thank")){
+      this.actionProvider.handleEvaluationOptions();
+    }
+
+    else {
+      this.actionProvider.handleErrorMessages();
+    }
   }
 }
 
