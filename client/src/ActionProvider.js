@@ -60,6 +60,36 @@ class ActionProvider {
   this.updateChatbotState(message);
   }
 
+  // handle Evaluation Options
+  handleEvaluationOptions = () => {
+    const message = this.createChatBotMessage (
+      "Are you satisfied with us?",
+      {
+        widget:"evaluationOptions",
+      }
+    );
+
+    this.updateChatbotState(message);
+  }
+
+  // handle Evaluation
+  handleEvaluation = () => {
+    const message = this.createChatBotMessage (
+      "Thank you for your evaluation! If you have any questions, please feel free to contact us, we are at your service 24/7."
+    );
+
+    this.updateChatbotState(message);
+  }
+
+  // handle error messages
+  handleErrorMessages = () => {
+    const message = this.createChatBotMessage (
+      "Sorry, I am not smart enough to understand your needs"
+    );
+
+    this.updateChatbotState(message);
+  }
+
  updateChatbotState(message) {
   this.setState(prevState => ({
     ...prevState, messages: [...prevState.messages, message]
