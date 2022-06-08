@@ -6,8 +6,20 @@ class MessageParser {
 
   parse(message) {
     const lowerCaseMessage = message.toLowerCase();
+    var regPos = / ^[0-9]+.?[0-9]*/;  // determine whether it is a number
 
-    if (lowerCaseMessage.includes("hello")){
+    if (!isNaN(message)){
+      if(regPos.test(lowerCaseMessage)){
+        this.actionProvider.handleOrderNum(lowerCaseMessage);
+        console.log('is Number');
+      }
+      else{
+        this.actionProvider.handleOrderNum(lowerCaseMessage);
+        console.log('is not Number');
+      }
+    }
+
+    else if (lowerCaseMessage.includes("hello")){
       this.actionProvider.greet();
     }
 
@@ -23,15 +35,23 @@ class MessageParser {
       this.actionProvider.handleShippingZones();
     }
 
+    else if(lowerCaseMessage.includes("tracking")){
+      this.actionProvider.handleTrackingOptions();
+    }
+
+    else if(lowerCaseMessage.includes("returns")){
+      this.actionProvider.handleReturnsOptions();
+    }
+
     else if(lowerCaseMessage.includes("specials")){
-      this.actionProvider.handleSpecials();
+      this.actionProvider.handleSpecialsOptions();
     }
 
     else if(lowerCaseMessage.includes("thank")){
       this.actionProvider.handleEvaluationOptions();
     }
 
-    else {
+    else{
       this.actionProvider.handleErrorMessages();
     }
   }

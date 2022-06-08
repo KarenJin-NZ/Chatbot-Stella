@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 class ActionProvider {
   constructor(
     createChatBotMessage,
@@ -41,53 +43,97 @@ class ActionProvider {
 
  // handle shipping zones
  handleShippingZones = () => {
-   const message = this.createChatBotMessage(
+   const message = this.createChatBotMessage (
      "We ship to all locations in New Zealand, and Australia."
    );
 
    this.updateChatbotState(message);
  }
 
- // handle Specials
- handleSpecials = () => {
-  const message = this.createChatBotMessage (
-    "Fantastic, I have found specials in the following 5 categories. Which category would you like to know?",
-  {
-    widget:"specialsLinks",
-  }
-  );
+ // handle tracking option
+ handleTrackingOptions = () => {
+   const message = this.createChatBotMessage (
+     "Please give me your order number.",
+   );
   
+   this.updateChatbotState(message);
+  }
+  
+ handleOrderNum = async (myordernumber) => {
+   await axios.get('/getTrackNum?order_number='+myordernumber, 
+   ).then((response) => {
+     console.log(response.data.data);
+     var res=response.data.msg;
+     const message = this.createChatBotMessage (
+       res
+     );
+     
+     this.updateChatbotState(message);  
+   });
+  }
+
+ // handle returns option
+ handleReturnsOptions = () => {
+  const message = this.createChatBotMessage (
+    "Please give me your order number.",
+  );
+ 
   this.updateChatbotState(message);
+ }
+
+ handleReturns = async (order_no) => {
+  await axios.get('/getReturns?order_no='+order_no, 
+  ).then((response) => {
+    console.log(response.data.data);
+    var res=response.data.msg;
+    const message = this.createChatBotMessage (
+      res
+    );
+    
+    this.updateChatbotState(message);
+  });
+ }
+
+ // handle Specials
+ handleSpecialsOptions = () => {
+   const message = this.createChatBotMessage (
+     "Fantastic, I have found specials in the following 5 categories. Which category would you like to know?",
+     {
+       widget:"specialsLinks",
+     }
+   );
+  
+   this.updateChatbotState(message);
   }
 
-  // handle Evaluation Options
-  handleEvaluationOptions = () => {
-    const message = this.createChatBotMessage (
-      "Are you satisfied with us?",
-      {
-        widget:"evaluationOptions",
-      }
-    );
-
-    this.updateChatbotState(message);
+ // handle Evaluation Options
+ handleEvaluationOptions = () => {
+   const message = this.createChatBotMessage (
+     "Are you satisfied with us?",
+     {
+       widget:"evaluationOptions",
+     }
+   );
+   
+   this.updateChatbotState(message);
   }
 
-  // handle Evaluation
-  handleEvaluation = () => {
-    const message = this.createChatBotMessage (
-      "Thank you for your evaluation! If you have any questions, please feel free to contact us, we are at your service 24/7."
-    );
-
-    this.updateChatbotState(message);
+ // handle Evaluation
+ handleEvaluation = () => {
+   const message = this.createChatBotMessage (
+     "Thank you for your evaluation! If you have any questions, please feel free to contact us, we are at your service 24/7."
+   );
+   
+   this.updateChatbotState(message);
   }
 
-  // handle error messages
-  handleErrorMessages = () => {
-    const message = this.createChatBotMessage (
-      "Sorry, I am not smart enough to understand your needs"
-    );
-
-    this.updateChatbotState(message);
+ // handle error messages
+ handleErrorMessages = () => {
+   const message = this.createChatBotMessage (
+     "Sorry, I am not smart enough to understand your needs"
+   );
+   
+   this.updateChatbotState(message);
   }
 
  updateChatbotState(message) {

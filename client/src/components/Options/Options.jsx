@@ -8,11 +8,18 @@ const Options = (props) => {
       handler: props.actionProvider.handleShippingOptions,
       id:1,
     },
-    { text: "Tracking", handler: () => {}, id: 2 },
-    { text: "Returns", handler: () => {}, id: 3 },
+    { text: "Tracking",
+      handler: props.actionProvider.handleTrackingOptions,
+      id: 2,
+    },
+    { text: "Returns",
+      handler: props.actionProvider.handleReturnsOptions,
+      id: 3,
+    },
     { text: "Specials", 
-      handler: props.actionProvider.handleSpecials, 
-      id: 4 },
+      handler: props.actionProvider.handleSpecialsOptions,
+      id: 4,
+    },
   ];
 
   const optionsMarkup = options.map((option) => (
