@@ -83,7 +83,7 @@ const config = {
 
   customComponents: {
     header:() => <div style={{backgroundColor:"#2FA4FF", padding:"5px",borderRadius:"3px", fontSize:"15px", display:"flex", justifyContent:"left"}}>
-      Hi there!👋I'm Stella the Bot.</div>,
+      <MyAvatar /> Hi there!👋I'm Stella the Bot.</div>,
     
 
     botAvatar:(props) =><MyAvatar {...props} />,
