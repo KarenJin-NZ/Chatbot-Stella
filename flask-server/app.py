@@ -31,25 +31,5 @@ def getTrackNum():
 
   return jsonify(response)
 
-@app.route("/getReturns")
-def getReturns():
-  order_no=request.args.get('order_no')
-  sql=f"select order_no from my_returns where order_no='{order_no}'"
-  cursor.execute(sql)   # execute sql statement
-  res=cursor.fetchone()
-  if res is None:
-    msg="Sorry, I couldn't find the order number. Please enter the correct one!"
-  else:
-    msg="Thank you, I have checked this order, and I'm helping you apply for a return."
-
-  response={
-    'code': 200,
-    'msg': msg,
-    'date': "27 May 2022"
-  }
-
-  return jsonify(response)
-
-
 if __name__ == "__main__":
   app.run(debug=True)

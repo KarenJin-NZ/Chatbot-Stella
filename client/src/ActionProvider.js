@@ -16,7 +16,7 @@ class ActionProvider {
  }
 
  greet() {
-  //create an array of greeting messages
+   //create an array of greeting messages
    const message = ["Hi, friend.", "Hey, how's it going?", "Hello, how are you?"];
    const randomGreetingMessage = message[Math.floor(Math.random() * 3)];
    const greetingMessage = this.createChatBotMessage(randomGreetingMessage);
@@ -88,30 +88,72 @@ class ActionProvider {
   this.updateChatbotState(message);
  }
 
- handleReturns = async (order_no) => {
-  await axios.get('/getReturns?order_no='+order_no, 
-  ).then((response) => {
-    console.log(response.data.data);
-    var res=response.data.msg;
-    const message = this.createChatBotMessage (
-      res
-    );
-    
-    this.updateChatbotState(message);
-  });
- }
-
  // handle Specials
  handleSpecialsOptions = () => {
    const message = this.createChatBotMessage (
-     "Fantastic, I have found specials in the following 5 categories. Which category would you like to know?",
+     "Fantastic, There are 5 specials on sale today. Which category would you like to know?",
      {
-       widget:"specialsLinks",
+       widget:"specialsOptions",
      }
    );
   
    this.updateChatbotState(message);
   }
+
+  handleSpecials1 = () => {
+    const message = this.createChatBotMessage (
+      "I have found specials on Health and Beauty for you, Please click the link below to view.",
+      {
+        widget:"specials1Links",
+      }
+    );
+   
+    this.updateChatbotState(message);
+   }
+
+   handleSpecials2 = () => {
+    const message = this.createChatBotMessage (
+      "I have found specials on Electronics and Gaming for you, Please click the link below to view.",
+      {
+        widget:"specials2Links",
+      }
+    );
+   
+    this.updateChatbotState(message);
+   }
+
+   handleSpecials3 = () => {
+    const message = this.createChatBotMessage (
+      "I have found specials on Books, Music and Movies for you, Please click the link below to view.",
+      {
+        widget:"specials3Links",
+      }
+    );
+   
+    this.updateChatbotState(message);
+   }
+
+   handleSpecials4 = () => {
+    const message = this.createChatBotMessage (
+      "I have found specials on Food, Pets and Household for you, Please click the link below to view.",
+      {
+        widget:"specials4Links",
+      }
+    );
+   
+    this.updateChatbotState(message);
+   }
+
+   handleSpecials5 = () => {
+    const message = this.createChatBotMessage (
+      "I have found specials on Clothing, Shoes and Jewellery for you, Please click the link below to view.",
+      {
+        widget:"specials5Links",
+      }
+    );
+   
+    this.updateChatbotState(message);
+   }
 
  // handle Evaluation Options
  handleEvaluationOptions = () => {
