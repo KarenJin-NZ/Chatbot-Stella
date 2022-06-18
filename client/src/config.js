@@ -5,6 +5,7 @@ import Shipping from "./components/Shipping/Shipping";
 import Evaluation from "./components/Evaluation/Evaluation";
 import MyAvatar from "./components/MyAvatar";
 import ReturnLink from "./components/ReturnLink/ReturnLink";
+import Specials from "./components/Specials/Specials";
 
 const config = {
   botName:"Stella",
@@ -26,24 +27,60 @@ const config = {
       widgetFunc: (props) => <Shipping {...props} />,
     },
 
-        //Return widget
-        {
-          widgetName: "returnForm",
-          widgetFunc: (props) => <ReturnLink {...props} />,
-          props: {
-            options: [
-              {
-                text: "Customer Return Form",
-                url: `return`,
-                id: 1,
-              }
-            ]
-          }
-        },
-
-    //Specials widget
+    //Return widget
     {
-      widgetName:"specialsLinks",
+      widgetName: "returnForm",
+      widgetFunc: (props) => <ReturnLink {...props} />,
+      props: {
+        options: [
+          {
+            text: "Customer Return Form",
+            url: `return`,
+            id: 1,
+          }
+        ]
+      }
+    },
+
+    //Specials widget first layer
+    {
+      widgetName:"specialsOptions",
+      widgetFunc: (props) => <Specials {...props} />,
+    },
+
+
+    {
+      widgetName:"specials1Links",
+      widgetFunc: (props) => <LinkList {...props} />,
+      props: {
+        options: [
+          {
+            text:"Health & Beauty",
+            url:
+            "https://www.thewarehouse.co.nz/c/specials/health-beauty",
+            id: 1,
+          },
+        ]
+      }
+    },
+
+    {
+      widgetName:"specials2Links",
+      widgetFunc: (props) => <LinkList {...props} />,
+      props: {
+        options: [
+          {
+            text:"Electronics & Gaming",
+            url:
+            "https://www.thewarehouse.co.nz/c/specials/electronics-gaming",
+            id: 1,
+          },
+        ]
+      }
+    },
+
+    {
+      widgetName:"specials3Links",
       widgetFunc: (props) => <LinkList {...props} />,
       props: {
         options: [
@@ -53,30 +90,36 @@ const config = {
             "https://www.thewarehouse.co.nz/c/specials/books-music-movies",
             id: 1,
           },
-          {
-            text:"Clothing, Shoes & Jewellery",
-            url:
-            "https://www.thewarehouse.co.nz/c/specials/clothing-shoes-jewellery",
-            id: 2,
-          },
-          {
-            text:"Electronics & Gaming",
-            url:
-            "https://www.thewarehouse.co.nz/c/specials/electronics-gaming",
-            id: 3,
-          },
-          {
-            text:"Health & Beauty",
-            url:
-            "https://www.thewarehouse.co.nz/c/specials/health-beauty",
-            id: 4,
-          },
+        ]
+      }
+    },
+
+    {
+      widgetName:"specials4Links",
+      widgetFunc: (props) => <LinkList {...props} />,
+      props: {
+        options: [
           {
             text:"Food, Pets & Household",
             url:
             "https://www.thewarehouse.co.nz/c/specials/food-pets-household",
-            id: 5,
+            id: 1,
           }
+        ]
+      }
+    },
+
+    {
+      widgetName:"specials5Links",
+      widgetFunc: (props) => <LinkList {...props} />,
+      props: {
+        options: [
+          {
+            text:"Clothing, Shoes & Jewellery",
+            url:
+            "https://www.thewarehouse.co.nz/c/specials/clothing-shoes-jewellery",
+            id: 1,
+          },
         ]
       }
     },

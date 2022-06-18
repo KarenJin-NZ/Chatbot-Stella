@@ -19,10 +19,6 @@ class MessageParser {
       }
     }
 
-    else if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hey")){
-      this.actionProvider.greet();
-    }
-
     else if(lowerCaseMessage.includes("shipping")){
       this.actionProvider.handleShippingOptions();
     }
@@ -47,8 +43,32 @@ class MessageParser {
       this.actionProvider.handleSpecialsOptions();
     }
 
+    else if(lowerCaseMessage.includes("health") || lowerCaseMessage.includes("beauty")){
+      this.actionProvider.handleSpecials1();
+    }
+
+    else if(lowerCaseMessage.includes("electronics") || lowerCaseMessage.includes("gaming")){
+      this.actionProvider.handleSpecials2();
+    }
+
+    else if(lowerCaseMessage.includes("book") || lowerCaseMessage.includes("music") || lowerCaseMessage.includes("movie")){
+      this.actionProvider.handleSpecials3();
+    }
+
+    else if(lowerCaseMessage.includes("food") || lowerCaseMessage.includes("pet") || lowerCaseMessage.includes("household")){
+      this.actionProvider.handleSpecials4();
+    }
+
+    else if(lowerCaseMessage.includes("cloth") || lowerCaseMessage.includes("shoes") || lowerCaseMessage.includes("jewellery")){
+      this.actionProvider.handleSpecials5();
+    }
+
     else if(lowerCaseMessage.includes("thank")){
       this.actionProvider.handleEvaluationOptions();
+    }
+
+    else if(lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hey")){
+      this.actionProvider.greet();
     }
 
     else{
