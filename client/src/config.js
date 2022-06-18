@@ -4,6 +4,7 @@ import Options from "./components/Options/Options";
 import Shipping from "./components/Shipping/Shipping";
 import Evaluation from "./components/Evaluation/Evaluation";
 import MyAvatar from "./components/MyAvatar";
+import ReturnLink from "./components/ReturnLink/ReturnLink";
 
 const config = {
   botName:"Stella",
@@ -24,6 +25,21 @@ const config = {
       widgetName:"shippingOptions",
       widgetFunc: (props) => <Shipping {...props} />,
     },
+
+        //Return widget
+        {
+          widgetName: "returnForm",
+          widgetFunc: (props) => <ReturnLink {...props} />,
+          props: {
+            options: [
+              {
+                text: "Customer Return Form",
+                url: `return`,
+                id: 1,
+              }
+            ]
+          }
+        },
 
     //Specials widget
     {
@@ -85,9 +101,7 @@ const config = {
     header:() => <div style={{backgroundColor:"#2FA4FF", padding:"5px",borderRadius:"3px", fontSize:"15px", display:"flex", justifyContent:"left"}}>
       <MyAvatar /> Hi there!👋I'm Stella the Bot.</div>,
     
-
     botAvatar:(props) =><MyAvatar {...props} />,
-    
   }
 }
 

@@ -19,7 +19,7 @@ class MessageParser {
       }
     }
 
-    else if (lowerCaseMessage.includes("hello")){
+    else if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi") || lowerCaseMessage.includes("hey")){
       this.actionProvider.greet();
     }
 
@@ -39,7 +39,7 @@ class MessageParser {
       this.actionProvider.handleTrackingOptions();
     }
 
-    else if(lowerCaseMessage.includes("returns")){
+    else if(lowerCaseMessage.includes("return")){
       this.actionProvider.handleReturnsOptions();
     }
 
