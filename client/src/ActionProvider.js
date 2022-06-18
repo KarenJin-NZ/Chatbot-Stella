@@ -16,7 +16,11 @@ class ActionProvider {
  }
 
  greet() {
-   const greetingMessage = this.createChatBotMessage("Hi, friend.");
+  //create an array of greeting messages
+   const message = ["Hi, friend.", "Hey, how's it going?", "Hello, how are you?"];
+   const randomGreetingMessage = message[Math.floor(Math.random() * 3)];
+   const greetingMessage = this.createChatBotMessage(randomGreetingMessage);
+
    this.updateChatbotState(greetingMessage);
  }
 
@@ -75,7 +79,10 @@ class ActionProvider {
  // handle returns option
  handleReturnsOptions = () => {
   const message = this.createChatBotMessage (
-    "Please give me your order number.",
+    "Please click the below link to fill the return form.",
+    {
+      widget: "returnForm",
+    }
   );
  
   this.updateChatbotState(message);
