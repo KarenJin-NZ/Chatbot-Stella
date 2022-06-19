@@ -5,7 +5,7 @@ This repo contains the Chatbot app, using React.js as frontend and Flask as back
 # Getting Start
 **You need Node.js, python and pip installed in your local machine to run commands.**
 
-**Windows**
+**In Windows system**
 
 Open terminal and enter below commands
 
@@ -29,7 +29,7 @@ npm start
 A webpage will open in the browser in localhost:3000
 
 
-**Mac**
+**In MacOS system**
 
 Open terminal and enter below commands
 
