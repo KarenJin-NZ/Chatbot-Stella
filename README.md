@@ -22,7 +22,6 @@ Open another terminal and enter below commands
 ```
 cd client
 npm install
-npm install react-router-dom@6
 npm start
 ```
 
@@ -46,7 +45,6 @@ Open another terminal and enter below commands
 ```
 cd client
 npm install
-npm install react-router-dom@6
 npm start
 ```
 
